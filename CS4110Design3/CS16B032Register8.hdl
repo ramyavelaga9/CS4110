@@ -1,0 +1,22 @@
+
+/**
+ * 8-bit register:
+ * If load[t] == 1 then out[t+1] = in[t]
+ * else out does not change
+ */
+
+CHIP CS16B032Register8 {
+    IN in[8], load;
+    OUT out[8];
+
+    PARTS:
+    CS16B032Bit(in=in[0],load=load,out=out[0]);
+    CS16B032Bit(in=in[1],load=load,out=out[1]);
+    CS16B032Bit(in=in[2],load=load,out=out[2]);
+    CS16B032Bit(in=in[3],load=load,out=out[3]);
+    CS16B032Bit(in=in[4],load=load,out=out[4]);
+    CS16B032Bit(in=in[5],load=load,out=out[5]);
+    CS16B032Bit(in=in[6],load=load,out=out[6]);
+    CS16B032Bit(in=in[7],load=load,out=out[7]);
+
+}

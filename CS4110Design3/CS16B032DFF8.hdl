@@ -1,0 +1,13 @@
+CHIP CS16B032DFF8{
+    IN in[8];
+    OUT out[8];
+    PARTS:
+    DFF(in=in[0], out=out[0]);
+    DFF(in=in[1], out=out[1]);
+    DFF(in=in[2], out=out[2]);
+    DFF(in=in[3], out=out[3]);
+    DFF(in=in[4], out=out[4]);
+    DFF(in=in[5], out=out[5]);
+    DFF(in=in[6], out=out[6]);
+    DFF(in=in[7], out=out[7]);
+}

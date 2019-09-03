@@ -1,0 +1,25 @@
+/**
+ * A 8-bit counter with load and reset control bits.
+ * if      (reset[t] == 1) out[t+1] = 0
+ * else if (load[t] == 1)  out[t+1] = in[t]
+ * else if (inc[t] == 1)   out[t+1] = out[t] + 1  (integer addition)
+ * else                    out[t+1] = out[t]
+ */
+
+CHIP CS16B032PC8 {
+    IN in[8],load,inc0,inc1,reset;
+    OUT out[8];
+
+    PARTS:
+    // Put your code here:
+    Not(in=reset, out=nreset);
+    CS16B032Mux8(a=in, b=net5, sel=load, out=net1);
+    CS16B032And8(a[0]=nreset,a[1]=nreset,a[2]=nreset,a[3]=nreset,a[4]=nreset,a[5]=nreset,a[6]=nreset,a[7]=nreset, b=net1, out=net2);
+    CS16B032DFF8(in=net2,out=net3);
+    Mux4Way16(a[0..7]=false, b[1..7]=false,b[0]=true,c[2..7]=false,c[0]=false,c[1]=true,d[3..7]=false,d[0]=false,d[1]=false,d[2]=true, sel[0]=inc1,sel[1]=inc0, out[0..7]=net4);
+    CS16B032Add8(a=net3, b=net4, sum=net5,sum=out);
+
+    
+
+    
+}
