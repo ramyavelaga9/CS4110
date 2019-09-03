@@ -1,0 +1,49 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/Adder16.hdl
+
+/**
+ * Adds two 16-bit values.
+ * The most significant carry bit is ignored.
+ */
+
+CHIP CS16B032AddSub16 {
+    IN a[16], b[16],cntrl;
+    OUT out[16];
+
+    PARTS:
+    Xor(a=b[0], b=cntrl, out=c0);
+    Xor(a=b[1], b=cntrl, out=c1);
+    Xor(a=b[2], b=cntrl, out=c2);
+    Xor(a=b[3], b=cntrl, out=c3);
+    Xor(a=b[4], b=cntrl, out=c4);
+    Xor(a=b[5], b=cntrl, out=c5);
+    Xor(a=b[6], b=cntrl, out=c6);
+    Xor(a=b[7], b=cntrl, out=c7);
+    Xor(a=b[8], b=cntrl, out=c8);
+    Xor(a=b[9], b=cntrl, out=c9);
+    Xor(a=b[10], b=cntrl, out=c10);
+    Xor(a=b[11], b=cntrl, out=c11);
+    Xor(a=b[12], b=cntrl, out=c12);
+    Xor(a=b[13], b=cntrl, out=c13);
+    Xor(a=b[14], b=cntrl, out=c14);
+    Xor(a=b[15], b=cntrl, out=c15);
+    CS16B032FullAdder(a=a[0],b=c0,c=cntrl,sum=out[0],carry=carry0);
+    CS16B032FullAdder(a=a[1],b=c1,c=carry0,sum=out[1],carry=carry1);
+    CS16B032FullAdder(a=a[2],b=c2,c=carry1,sum=out[2],carry=carry2);
+    CS16B032FullAdder(a=a[3],b=c3,c=carry2,sum=out[3],carry=carry3);
+    CS16B032FullAdder(a=a[4],b=c4,c=carry3,sum=out[4],carry=carry4);
+    CS16B032FullAdder(a=a[5],b=c5,c=carry4,sum=out[5],carry=carry5);
+    CS16B032FullAdder(a=a[6],b=c6,c=carry5,sum=out[6],carry=carry6);
+    CS16B032FullAdder(a=a[7],b=c7,c=carry6,sum=out[7],carry=carry7);
+    CS16B032FullAdder(a=a[8],b=c8,c=carry7,sum=out[8],carry=carry8);
+    CS16B032FullAdder(a=a[9],b=c9,c=carry8,sum=out[9],carry=carry9);
+    CS16B032FullAdder(a=a[10],b=c10,c=carry9,sum=out[10],carry=carry10);
+    CS16B032FullAdder(a=a[11],b=c11,c=carry10,sum=out[11],carry=carry11);
+    CS16B032FullAdder(a=a[12],b=c12,c=carry11,sum=out[12],carry=carry12);
+    CS16B032FullAdder(a=a[13],b=c13,c=carry12,sum=out[13],carry=carry13);
+    CS16B032FullAdder(a=a[14],b=c14,c=carry13,sum=out[14],carry=carry14);
+    CS16B032FullAdder(a=a[15],b=c15,c=carry14,sum=out[15],carry=carry15);
+    
+}
