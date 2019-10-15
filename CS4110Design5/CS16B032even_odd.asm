@@ -1,0 +1,18 @@
+@0
+D=M
+@1
+M=1
+D=D&M
+@ODD
+D;JGT
+(EVEN)
+    @even
+    M=0
+    @END
+    0;JMP
+(ODD)
+    @odd
+    M=1
+(END)
+    @END
+    0;JMP
