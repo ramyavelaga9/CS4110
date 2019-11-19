@@ -1,0 +1,8 @@
+M=D
+0;JMP
+D;JEQ
+0;JNE
+0;JLE
+A;JLT
+D;JGT
+0;JGE
