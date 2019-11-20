@@ -1,0 +1,37 @@
+@SCREEN
+D=A
+@addr
+M=D
+@8192
+D=A
+@n
+M=D
+@i
+M=0
+(LOOP)
+    @i
+    D=M
+    @n
+    D=M-D
+    @END
+    D;JEQ
+    @21845
+    D=A
+    @addr
+    A=M
+    M=D
+    @addr
+    M=M+1
+    @addr
+    A=M
+    M=D
+    M=M+D
+    @2
+    D=A
+    @i
+    M=M+D
+    @LOOP
+    0;JMP
+(END)
+    @END
+    0;JMP
