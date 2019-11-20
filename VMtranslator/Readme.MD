@@ -2,4 +2,4 @@ Designed a VM translator that would take a VM code and translate it to correspon
 while detecting syntax errors. The input to VM translator would be .vm file and the output would be
 .asm file.
 
-python VMtranslator.py [file.vm]
+python VM_Translator.py [file.vm]
